@@ -14,17 +14,30 @@ class Todo
     }
     public function create($name)
     {
-      $stmt = $this->db_manager->dbh->prepare('INSERT INTO ' . $this->table .' (name) VALUES (?)');
-      $stmt->execute([$name]);
-  }
+        $stmt = $this->db_manager->dbh->prepare('INSERT INTO ' . $this->table .' (name) VALUES (?)');
+        $stmt->execute([$name]);
+    }
     public function all()
-      {
-      $stmt = $this->db_manager->dbh->prepare('SELECT * FROM '.$this->table);
-      $stmt->execute();
-      $tasks = $stmt->fetchALL();
+    {
+        $stmt = $this->db_manager->dbh->prepare('SELECT * FROM '.$this->table);
+        $stmt->execute();
+        $tasks = $stmt->fetchALL();
 
-      return $tasks;
-      }
+        return $tasks;
+    }
+
+    public function get($id){
+        $stmt = $this->db_manager->dbh->prepare('SELECT * FROM ' . $this->table . ' WHERE id = ?');
+        $stmt->execute([$id]);
+        $task = $stmt->fetch();
+
+        return $task;
+    }
+    public function update($name, $id)
+    {
+        $stmt = $this->db_manager->dbh->prepare('UPDATE '.$this->table .' SET name = ? WHERE ID = ?');
+        $stmt->execute([$name, $id]);
+    }
 }
 
 

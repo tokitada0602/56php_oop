@@ -68,7 +68,7 @@
                     <a class="text-success" href="edit.php?id=<?php echo h($task['id']); ?>">EDIT</a>
                 </td>
                 <?php
-    var_dump($task['id']);
+    // var_dump($task['id']);
 ?>
                 <td>
                     <a class="text-danger" href="">DELETE</a>
