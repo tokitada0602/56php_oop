@@ -24,7 +24,7 @@
 <body>
 <header class="px-5 bg-primary">
     <nav class="navbar navbar-dark">
-        <a href="index.php" class="navbar-brand">ToDo</a>
+        <a href="index.php" class="navbar-brand">友達百人できるかな？</a>
         <div class="justify-content-end">
             <span class="text-light">
                 time.inc
@@ -48,7 +48,7 @@
         <table class="table table-hover">
             <thead>
             <tr class="bg-primary text-light">
-                <th class=>TODO</th>
+                <th class=>NAME</th>
                 <th>DUE DATE</th>
                 <th>STATUS</th>
                 <th></th>
