@@ -17,13 +17,14 @@
   <title>Document</title>
   <link rel="stylecss" href="assets/css/reset.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylecss" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 
 </head>
 <body>
 <header class="px-5 bg-primary">
     <nav class="navbar navbar-dark">
-        <a href="index.php" class="navbar-brand">TODO APP</a>
+        <a href="index.php" class="navbar-brand">ToDo</a>
         <div class="justify-content-end">
             <span class="text-light">
                 time.inc
@@ -61,17 +62,18 @@
                     <?php echo $task['name']; ?>
                     </td>
                     <td>
-                    <?php echo $task['due_date']; ?>
+                    <?php echo date("F j/Y H:m:i:s",
+                    strtotime($task['due_date'])); ?>
                     </td>
                     <td>NOT YET</td>
                     <td>
-                    <a class="text-success" href="edit.php?id=<?php echo h($task['id']); ?>">EDIT</a>
+                    <a class="text-success" href="edit.php?id=<?php echo h($task['id']); ?>"><i class="far fa-edit"></i></a>
                 </td>
                 <?php
     // var_dump($task['id']);
 ?>
                 <td>
-                    <a class="text-danger" href="delete.php?id=<?php echo h ($task['id']);?>">DELETE</a>
+                    <a class="text-danger" href="delete.php?id=<?php echo h ($task['id']);?>"><i class="far fa-trash-alt"></i></a>
                 </td>
                     <?php endforeach; ?>
             </tbody>
