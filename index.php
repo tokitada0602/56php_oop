@@ -37,10 +37,10 @@
     <section>
         <form class="form-row justify-content-center" action="create.php" method="POST">
             <div class="col-10 col-md-6 py-2">
-                <input type="text" class="form-control" placeholder="ADD TODO" name="task">
+                <input id=input-task type="text" class="form-control" placeholder="ADD TODO" name="task">
             </div>
             <div class="py-2 col-md-3 col-10">
-                <button type="submit" class="col-12 btn btn-primary">ADD</button>
+                <button id="add-button" type="submit" class="col-12 btn btn-primary">ADD</button>
             </div>
         </form>
     </section>
@@ -57,7 +57,7 @@
             </thead>
             <tbody>
             <?php foreach ($tasks as $task):?>
-                    <tr>
+                <!-- <tr>
                     <td>
                     <?php echo $task['name']; ?>
                     </td>
@@ -68,17 +68,31 @@
                     <td>NOT YET</td>
                     <td>
                     <a class="text-success" href="edit.php?id=<?php echo h($task['id']); ?>"><i class="far fa-edit"></i></a>
+                    </td>
+                </tr> -->
+            <tr>
+                <td><?php echo h($task['name']); ?></td>
+                <td><?php echo h($task['due_date']); ?></td>
+                <td>NOT YET</td>
+                <td>
+                    <a class="text-success" href="edit.php?id=<?php echo h($task['id']); ?>">EDIT</a>
                 </td>
+                <td>
+                    <a data-id="<?php echo h($task['id']); ?>" class="text-danger delete-button" href="delete.php?id=<?php echo h($task['id']); ?>">DELETE</a>
+                </td>
+            </tr>
                 <?php
     // var_dump($task['id']);
 ?>
-                <td>
+                <!-- <td>
                     <a class="text-danger" href="delete.php?id=<?php echo h ($task['id']);?>"><i class="far fa-trash-alt"></i></a>
                 </td>
                     <?php endforeach; ?>
-            </tbody>
+            </tbody> -->
         </table>
     </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./assets/js/app.js"></script>
 </body>
 </html>
 
